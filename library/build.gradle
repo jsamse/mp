@@ -2,7 +2,7 @@ plugins {
     id 'org.jetbrains.kotlin.multiplatform' version '1.4.21'
 }
 
-group 'org.example'
+group 'se.jsam.mp'
 version '1.0-SNAPSHOT'
 
 repositories {
