@@ -12,6 +12,13 @@ repositories {
 
 kotlin {
     jvm()
+    ios {
+        binaries {
+            framework {
+                baseName = "DeviceInfo"
+            }
+        }
+    }
 
     sourceSets {
         commonMain {
@@ -31,4 +38,18 @@ kotlin {
             }
         }
     }
+}
+
+tasks.register("assembleFramework", Exec) {
+    dependsOn 'linkReleaseFrameworkIosArm64', 'linkReleaseFrameworkIosX64'
+    executable "xcodebuild"
+    args = [
+            '-create-xcframework',
+            '-framework',
+            'build/bin/iosArm64/releaseFramework/DeviceInfo.framework',
+            '-framework',
+            'build/bin/iosX64/releaseFramework/DeviceInfo.framework',
+            '-output',
+            'build/framework/DeviceInfo.xcframework',
+    ]
 }
