@@ -24,9 +24,12 @@ kotlin {
     }
 
     sourceSets {
+        def ktor_version = "1.5.1"
         commonMain {
             dependencies {
                 implementation kotlin('stdlib-common')
+                implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1"
+                implementation("io.ktor:ktor-client-core:$ktor_version")
             }
         }
         commonTest {
@@ -35,9 +38,24 @@ kotlin {
                 implementation kotlin('test-annotations-common')
             }
         }
+        jvmMain {
+            dependencies {
+                implementation("io.ktor:ktor-client-apache:$ktor_version")
+            }
+        }
         jvmTest {
             dependencies {
                 implementation kotlin('test-junit')
+            }
+        }
+        iosMain {
+            dependencies {
+                implementation("io.ktor:ktor-client-ios:$ktor_version")
+            }
+        }
+        jsMain {
+            dependencies {
+                implementation("io.ktor:ktor-client-js:$ktor_version")
             }
         }
         jsTest {
