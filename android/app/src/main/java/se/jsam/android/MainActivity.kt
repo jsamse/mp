@@ -11,7 +11,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val service = DeviceInfoService()
         service.getDeviceInfo {
-            findViewById<TextView>(R.id.text).text = it.toString()
+            runOnUiThread {
+                findViewById<TextView>(R.id.text).text = it.toString()
+            }
         }
     }
 }
