@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'se.jsam.mp'
-version '1.0-SNAPSHOT'
+version '1.0'
 
 repositories {
     mavenCentral()
@@ -22,6 +22,11 @@ kotlin {
             dependencies {
                 implementation kotlin('test-common')
                 implementation kotlin('test-annotations-common')
+            }
+        }
+        jvmTest {
+            dependencies {
+                implementation kotlin('test-junit')
             }
         }
     }
