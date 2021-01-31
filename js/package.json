@@ -1,0 +1,11 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "mp": "file:../library/build/js/packages/mp"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": [],
+  "name": "mpjs",
+  "version": "1.0.0"
+}

@@ -19,6 +19,9 @@ kotlin {
             }
         }
     }
+    js {
+        nodejs()
+    }
 
     sourceSets {
         commonMain {
@@ -35,6 +38,11 @@ kotlin {
         jvmTest {
             dependencies {
                 implementation kotlin('test-junit')
+            }
+        }
+        jsTest {
+            dependencies {
+                implementation kotlin('test-js')
             }
         }
     }
